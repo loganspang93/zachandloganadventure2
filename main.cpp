@@ -10,6 +10,7 @@ using namespace std;
 int playerLocation = 1;
 int input = 0;
 string name;
+string gender;
 
 void titleScreen () {
     system("cls");
@@ -26,27 +27,29 @@ void titleScreen () {
 void charSetup () {
     system("cls");
     cout << "Welcome, the Adventure begins." << endl;
-
-        cout << "What is your name?" << endl;
-        cin >> name;
-        cout << name << ", woah." << endl;
-
-
-        string gender;
-        cout << "I can't remember, are you a boy or girl?" << endl;
-        cout << "1. Male \n2. Female" << endl;
-        cin >> input;
-        if (input == 1) {
-            system("cls");
-            cout << "You're a dude!" << endl;
-            gender = "male";
-        }
-        else if(input == 2) {
-            system("cls");
-            cout << "Dang, girl, you got it going on!" << endl;
-            gender = "female";
-        }
-        return;
+    cout << "What is your name?" << endl;
+    cin.ignore();
+    getline(cin, name);
+    cout << name << ", woah." << endl;
+    system("cls");
+    cout << "I can't remember, are you a boy or girl?" << endl;
+    cout << "1. Male" << endl;
+    cout << "2. Female" << endl;
+    cin >> input;
+    getline(cin, gender);
+    if (input == 1) {
+        system("cls");
+        cout << "You're a dude!" << endl;
+        gender = "male";
+    }
+    else if(input == 2) {
+        system("cls");
+        cout << "Dang, girl, you got it going on!" << endl;
+        gender = "female";
+    }
+    cout << "Press ENTER to continue...";
+    cin.ignore();
+    return;
 }
 
 void playGame () {
